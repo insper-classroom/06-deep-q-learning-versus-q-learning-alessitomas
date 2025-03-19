@@ -128,6 +128,7 @@ class Agent(nn.Module):
         rewards = []
         for i in range(self.episodes):
             state, _ = self.env.reset()  
+        
             state = np.reshape(state, (1, self.state_dim))
             score = 0
             
