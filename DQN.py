@@ -33,7 +33,7 @@ class Agent(nn.Module):
         self.gamma = 0.99
         self.epsilon = 1.0
         self.epsilon_min = 0.01
-        self.epsilon_dec = 0.99
+        self.epsilon_dec = 0.995
 
         
         # Configurar o dispositivo (CPU ou GPU)
@@ -120,13 +120,10 @@ class Agent(nn.Module):
         # Treinar a rede
         self.update(states, targets_full)
         
-        # Decaimento do epsilon
-        if self.epsilon > self.epsilon_min:
-            self.epsilon *= self.epsilon_dec
-            
     def train_agent(self):
         rewards = []
         for i in range(self.episodes):
+
             state, _ = self.env.reset()  
         
             state = np.reshape(state, (1, self.state_dim))
@@ -145,16 +142,21 @@ class Agent(nn.Module):
                 self.experience_replay()
                 
                 if terminal:
-                    print(f'Episódio: {i+1}/{self.episodes}. Score: {score}')
+                    print(f'Episódio: {i+1}/{self.episodes}. Score: {score}. Epsilon: {self.epsilon}')
                     break
                     
-            rewards.append(score)    
+            rewards.append(score)  
+            
+            # Decaimento do epsilon
+            if self.epsilon > self.epsilon_min:
+                self.epsilon *= self.epsilon_dec
+            
         return rewards
 
 
 if __name__ == "__main__":
     env = gym.make('MountainCar-v0', render_mode=None)  
-    agent = Agent(env, episodes=200, timesteps=1000, batch_size=64)
+    agent = Agent(env, episodes=5000, timesteps=201, batch_size=64)
     rewards = agent.train_agent()
-    
-    torch.save(agent.state_dict(), 'dqn_mountaincar.pth')
+    np.save('learning_curve_data.npy', rewards)
+    torch.save(agent.state_dict(), 'dqn_mountaincar-v.pth')

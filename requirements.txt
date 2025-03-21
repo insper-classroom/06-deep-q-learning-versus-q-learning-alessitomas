@@ -1,3 +1,4 @@
 torch
 gymnasium
-"gymnasium[classic_control]"
+pandas
+matplotlib
