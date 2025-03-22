@@ -47,6 +47,10 @@ Hiperparâmetros Q Learning
 
 ![](results/agent_mean_comparison.png)
 
+
+**Aviso** : Para a inferência Q Learning foi treinado com 10000 episódios enquanto DQN foi treinado com a metade ou seja 5000. No gráfico anterior para comparsão foi excluído os 5000 episódios finais de treinamento do Q learning, mas para a inferência os agentes tiveram diferentes quantidades de episódios de treinamento.
+
+
 Comparando a média do desempenho do agente durante 20 inferências no ambiente, é possível ver que o DQN teve um desempenho melhor, o que condiz com o gráfico observado sobre a curva de aprendizado.
 
 Com o DQN apresentando na média 15.45 a mais de reward em cada teste.
