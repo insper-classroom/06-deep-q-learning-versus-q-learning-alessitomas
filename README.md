@@ -2,13 +2,18 @@
 
 ## Armazene os pesos da Q-table.
 
+Estão salvos no path:
+
 logs/q_table_logs/
 
 ## Armazene os pesos da rede neural.
 
+Estão salvos no path:
+
 dqn-nn/
 
-## Compare os resultados obtidos com o Q-Learning e o Deep Q-Learning usando um plot. Tente deixar claro no plot qual a meta de recompensa acumulada para o ambiente MountainCar
+
+## Q1: Compare os resultados obtidos com o Q-Learning e o Deep Q-Learning usando um plot. Tente deixar claro no plot qual a meta de recompensa acumulada para o ambiente MountainCar
 
 ![](results/qlearning_vs_dqn_comparison.png)
 
@@ -38,7 +43,7 @@ Hiperparâmetros Q Learning
     - epsilon_dec = 0.995 
     - episodes = 10000   
 
-## Crie outro gráfico que mostra o desempenho de ambos os agentes durante o processo de inferência, ou seja, quando o agente está atuando sem treinamento.
+## Q2: Crie outro gráfico que mostra o desempenho de ambos os agentes durante o processo de inferência, ou seja, quando o agente está atuando sem treinamento.
 
 ![](results/agent_mean_comparison.png)
 
