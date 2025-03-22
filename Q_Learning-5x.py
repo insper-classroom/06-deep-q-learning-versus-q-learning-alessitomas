@@ -1,13 +1,13 @@
 from Q_learning import MountainCarAgent
 import gymnasium as gym
 
-alpha = 0.1
-gamma = 0.99
+alpha = 0.1        
+gamma = 0.99       
 epsilon = 1.0      
 epsilon_min = 0.01 
-epsilon_dec = 0.995
-episodes = 10000
-    
+epsilon_dec = 0.995 
+episodes = 10000   
+
     
 env = gym.make('MountainCar-v0')
 

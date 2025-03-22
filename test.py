@@ -20,7 +20,7 @@ def test_DQN_trained_agent():
     
     agent.eval()
 
-    for ep in range(5):
+    for ep in range(20):
         state, _ = env.reset()
         state = np.reshape(state, (1, env.observation_space.shape[0]))
         
@@ -64,7 +64,7 @@ def test_QLearning_trained_agent():
     agent.Q = loaded_q_table
     q_rewards = []
     
-    for ep in range(5):
+    for ep in range(20):
         state, _ = env.reset()
         state_adj = agent.transform_state(state)
         
@@ -84,7 +84,7 @@ def test_QLearning_trained_agent():
             
             if steps >= 1000:
                 break
-        
+        print(total_reward)
         q_rewards.append(total_reward)
     
     env.close()
